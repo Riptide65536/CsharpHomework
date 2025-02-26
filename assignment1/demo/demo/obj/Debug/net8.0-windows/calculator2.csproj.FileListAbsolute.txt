@@ -1,0 +1,16 @@
+D:\Coding_programs\C#\Projects\demo\demo\bin\Debug\net8.0-windows\calculator2.exe
+D:\Coding_programs\C#\Projects\demo\demo\bin\Debug\net8.0-windows\calculator2.deps.json
+D:\Coding_programs\C#\Projects\demo\demo\bin\Debug\net8.0-windows\calculator2.runtimeconfig.json
+D:\Coding_programs\C#\Projects\demo\demo\bin\Debug\net8.0-windows\calculator2.dll
+D:\Coding_programs\C#\Projects\demo\demo\bin\Debug\net8.0-windows\calculator2.pdb
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\demo.Calculator.resources
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.csproj.GenerateResource.cache
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.AssemblyInfoInputs.cache
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.AssemblyInfo.cs
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.csproj.CoreCompileInputs.cache
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.dll
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\refint\calculator2.dll
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.pdb
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\calculator2.genruntimeconfig.cache
+D:\Coding_programs\C#\Projects\demo\demo\obj\Debug\net8.0-windows\ref\calculator2.dll
