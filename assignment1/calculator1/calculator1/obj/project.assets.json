@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding_programs\\C#\\Projects\\calculator1\\calculator1\\calculator1.csproj",
+      "projectUniqueName": "D:\\Coding_programs\\CsharpHomework\\assignment1\\calculator1\\calculator1\\calculator1.csproj",
       "projectName": "calculator1",
-      "projectPath": "D:\\Coding_programs\\C#\\Projects\\calculator1\\calculator1\\calculator1.csproj",
+      "projectPath": "D:\\Coding_programs\\CsharpHomework\\assignment1\\calculator1\\calculator1\\calculator1.csproj",
       "packagesPath": "C:\\Users\\林豪\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding_programs\\C#\\Projects\\calculator1\\calculator1\\obj\\",
+      "outputPath": "D:\\Coding_programs\\CsharpHomework\\assignment1\\calculator1\\calculator1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages"
