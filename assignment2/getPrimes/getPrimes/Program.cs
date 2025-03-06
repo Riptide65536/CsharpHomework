@@ -21,7 +21,7 @@ class Solution
             {
                 primes.Add(i);
             }
-            for(int j=i+i; j<=n; j+=i)
+            for (int j = i * i; j <= n; j += i)
             {
                 isNotPrime[j] = true;
             }
