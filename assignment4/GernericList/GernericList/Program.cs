@@ -18,15 +18,15 @@
             // 求最大，最小值
             int maxVal = int.MinValue, minVal = int.MaxValue;
             intList.ForEach(x => {
-                maxVal = Math.Max(maxVal, x);
-                minVal = Math.Min(minVal, x);
+                if(x > maxVal) maxVal = x;
+                if(x < minVal) minVal = x;
             });
 
             Console.WriteLine($"Maxval: {maxVal}, Minval: {minVal}");
 
             // 求和
             int sum = 0;
-            intList.ForEach(x => sum += x);
+            sum = intList.Fold(0, (a, b) => a + b);
 
             Console.WriteLine($"Sum of the list: {sum}");
         }

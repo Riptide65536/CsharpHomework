@@ -32,7 +32,7 @@ namespace AlarmClockDemo
             Tick?.Invoke(this, currentTime);
 
             // 检查是否到达响铃时间（精确到秒）
-            if (currentTime >= AlarmTime && currentTime.Second == AlarmTime.Second)
+            if (currentTime >= AlarmTime)
             {
                 Alarm?.Invoke(this, AlarmTime);
             }

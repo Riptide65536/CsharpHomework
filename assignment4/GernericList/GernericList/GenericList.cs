@@ -36,5 +36,17 @@ namespace GernericList
                 p = p.Next;
             }
         }
+
+        public T Fold(T start, Func<T, T, T> fun)
+        {
+            T tot = start;
+            Node<T>? p = Head;
+            while (p != null)
+            {
+                tot = fun(tot, p.Data);
+                p = p.Next;
+            }
+            return tot;
+        }
     }
 }
