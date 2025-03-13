@@ -213,14 +213,16 @@ namespace Shape
 
     class SimpleFactory
     { 
-        public static Shape GetShape(string name, double[] sides)
+        public enum ShapeType{Rectangle, Square, Triangle, Circle}
+
+        public static Shape GetShape(ShapeType name, double[] sides)
         {
             return name switch
             {
-                "Rectangle" => new Rectangle(sides[0], sides[1]),
-                "Square" => new Square(sides[0]),
-                "Triangle" => new Triangle(sides[0], sides[1], sides[2]),
-                "Circle" => new Circle(sides[0]),
+                ShapeType.Rectangle => new Rectangle(sides[0], sides[1]),
+                ShapeType.Square => new Square(sides[0]),
+                ShapeType.Triangle => new Triangle(sides[0], sides[1], sides[2]),
+                ShapeType.Circle => new Circle(sides[0]),
                 _ => throw new Exception("The shape name does not exist in the factory!"),
             };
         }
@@ -247,7 +249,7 @@ namespace Shape
                 {
                     sides[j] = NextDouble(ran, 0.0, 50.0);
                 }
-                list[i] = SimpleFactory.GetShape(name, sides);
+                list[i] = SimpleFactory.GetShape((SimpleFactory.ShapeType)type, sides);
             }
             return list;
         }
