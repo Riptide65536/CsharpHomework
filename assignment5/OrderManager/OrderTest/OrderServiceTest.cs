@@ -121,7 +121,7 @@ namespace OrderTest
 
             Order order4 = new Order(3);
             order4.AddDetail(new Goods("4", 100m), 3);
-            orderService.AddOrder(order3);
+            orderService.AddOrder(order4);
 
             orderService.SortOrders(null);
             var t = from o in orderService.GetAllOrders() 
@@ -148,7 +148,7 @@ namespace OrderTest
 
             Order order4 = new Order(3);
             order4.AddDetail(new Goods("4", 100m), 3);
-            orderService.AddOrder(order3);
+            orderService.AddOrder(order4);
 
             var res = from o in orderService.GetAllOrders()
                       orderby o.Details[0].Item.Price

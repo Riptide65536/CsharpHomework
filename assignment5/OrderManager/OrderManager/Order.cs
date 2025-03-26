@@ -9,11 +9,19 @@ namespace OrderManager
     public class Order
     {
         public int Id { get; set; }
+        public string customer { get; }
         private List<OrderDetails> _details = [];
         public IReadOnlyList<OrderDetails> Details => _details.AsReadOnly();
+        public Order(int id, string customer) : this(id)
+        {
+            this.customer = customer;
+            _details = [];
+        }
+
         public Order(int id)
         {
             Id = id;
+            customer = "";
             _details = [];
         }
 
@@ -43,6 +51,7 @@ namespace OrderManager
 
         public override int GetHashCode()
             => HashCode.Combine(Id,
+                customer,
                 _details.Sum(d => d.GetHashCode())
                 );
         private static bool AreDetailsEqual(IEnumerable<OrderDetails> a, IEnumerable<OrderDetails> b)
@@ -61,6 +70,7 @@ namespace OrderManager
         {
             if (obj is not Order order) return false;
             if (order.Id != Id) return false;
+            if (order.customer != customer) return false;
 
             return AreDetailsEqual(order._details, _details);
         }
@@ -68,7 +78,7 @@ namespace OrderManager
         public override string ToString()
         {
             StringBuilder builder = new();
-            builder.Append($"Id: {Id}\n");
+            builder.Append($"Id: {Id} Name: {customer}\n");
             foreach(var v in _details)
             {
                 builder.Append('\t');

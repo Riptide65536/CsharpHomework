@@ -27,13 +27,7 @@ namespace OrderManager
         }
         public void RemoveOrder(int id)
         {
-            var found = from order in _orders
-                        where order.Id == id
-                        select order;
-            foreach(var o in found)
-            {
-                _orders.Remove(o);
-            }
+            _orders.RemoveAll(o => o.Id == id);
         }
         public void UpdateOrder(int id, Order newOrder)
         {
@@ -68,7 +62,7 @@ namespace OrderManager
 
         public IEnumerable<Order> GetAllOrders()
         {
-            return _orders;
+            return _orders; 
         }
     }
 }

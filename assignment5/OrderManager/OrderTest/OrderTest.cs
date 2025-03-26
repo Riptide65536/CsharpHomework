@@ -17,7 +17,7 @@ namespace OrderTest
             Order test = new Order(0);
             test.AddDetail(new Goods("Apple", 0.99m), 10);
             test.AddDetail(new Goods("Pear", 1.05m), 5);
-            string s = "Id: 0\n"
+            string s = "Id: 0 Name: \n"
                      + "\tName: Apple, Price: 0.99, Amount: 10\n"
                      + "\tName: Pear, Price: 1.05, Amount: 5\n";
             CollectionAssert.Equals(test.ToString(), s);

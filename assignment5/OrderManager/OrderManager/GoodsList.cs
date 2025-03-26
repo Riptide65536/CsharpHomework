@@ -11,26 +11,31 @@ namespace OrderManager
 {
     public class GoodsList
     {
-        readonly Dictionary<Goods, int> _inventory;
+        public Dictionary<Goods, int> Inventory { get; }
 
         public GoodsList()
         {
-            _inventory = [];
+            Inventory = [];
+        }
+
+        public GoodsList(Dictionary<Goods, int> inventory)
+        {
+            Inventory = inventory;
         }
 
         public void AddStock(Goods goods, int quantity)
         {
-            if (!_inventory.TryGetValue(goods, out _))
+            if (!Inventory.TryGetValue(goods, out _))
             {
-                _inventory.Add(goods, quantity);
+                Inventory.Add(goods, quantity);
                 return;
             }
-            _inventory[goods] += quantity;
+            Inventory[goods] += quantity;
         }
 
         public void ReduceStock(Goods goods, int quantity)
         {
-            if (!_inventory.TryGetValue(goods, out int stock))
+            if (!Inventory.TryGetValue(goods, out int stock))
             {
                 throw new InvalidOperationException("货物不存在！");
             }
@@ -38,12 +43,12 @@ namespace OrderManager
             {
                 throw new InvalidOperationException("货物存量不足！");
             }
-            _inventory[goods] -= quantity;
+            Inventory[goods] -= quantity;
         }
 
         public int CheckStock(Goods goods)
         {
-            if (!_inventory.TryGetValue(goods, out int stock))
+            if (!Inventory.TryGetValue(goods, out int stock))
             {
                 throw new InvalidOperationException("货物不存在！");
             }
@@ -54,7 +59,7 @@ namespace OrderManager
         {
             StringBuilder builder = new();
             builder.Append($"Current stock:\n");
-            foreach (var (g, i) in _inventory)
+            foreach (var (g, i) in Inventory)
             {
                 builder.Append(g.ToString());
                 builder.Append(" Remains: ");
