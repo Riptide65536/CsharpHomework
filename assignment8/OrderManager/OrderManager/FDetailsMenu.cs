@@ -156,10 +156,11 @@ namespace OrderManager
 
             else if(e.ColumnIndex == 2)
             {
-
+                // 启用点击单元格的编辑模式
+                dataGridView1.BeginEdit(true);
             }
 
-                orderDetailsBindingSource.ResetBindings(false);
+            orderDetailsBindingSource.ResetBindings(false);
         }
     }
 }

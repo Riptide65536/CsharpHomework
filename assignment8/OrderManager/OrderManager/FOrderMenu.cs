@@ -59,15 +59,25 @@ namespace OrderManager
                 case 0:
                     predicate = (o => true);
                     break;
-                case 1://订单编号
+                case 1: // 订单编号
                     predicate = (o => o.OrderId.ToString() == filterInput.Text);
                     break;
-                case 2://姓名
+                case 2: // 姓名
                     predicate = (o => o.Customer != null && o.Customer.Name == filterInput.Text);
                     break;
-                case 3://货物名
-                    predicate = (o => o.Details.FirstOrDefault(od => od.GoodsName == filterInput.Text) != default);
-                    break;
+                case 3: // 货物名
+                    {
+                        /*
+                        using var content = new OrdersContext();
+                        var details = content.OrderDetails
+                            .Where(d => d.Goods.Name == filterInput.Text)
+                            .Select(d => d.OrderId);
+                        predicate = (o => details.Contains(o.OrderId));
+                        break;*/
+
+                        MessageBox.Show("错误！还没有实现！");
+                        return;
+                    }
                 default:
                     MessageBox.Show("错误！还没有实现！");
                     return;
@@ -77,20 +87,21 @@ namespace OrderManager
             Func<Order, object> sortField;
             switch (sortSelect1.SelectedIndex)
             {
-                case 0: sortField = o => o.OrderId; break;           //订单编号
-                case 1: sortField = o => o.Customer?.Name ?? ""; break; //用户名
-                case 2: sortField = o => o.Customer?.CustomerId ?? 0; break;  //用户编号
-                case 3: sortField = o => o.CreateTime; break;   //时间
-                case 4: sortField = o => o.TotalPrice; break;   //总金额
+                case 0: sortField = o => o.OrderId; break;           // 订单编号
+                case 1: sortField = o => o.Customer?.Name ?? ""; break; // 用户名
+                case 2: sortField = o => o.Customer?.CustomerId ?? 0; break;  // 用户编号
+                case 3: sortField = o => o.CreateTime; break;   // 时间
+                case 4: sortField = o => o.TotalPrice; break;   // 总金额
                 default: MessageBox.Show("错误！还没有实现！"); return;
             }
 
             // 筛选，并且重组数据绑定
-            // TODO：筛选和排序的算法需要完善
-            using var content = new OrdersContext();
-            orderBinding.DataSource = sortSelect1.SelectedIndex == 0 ?
-                content.Orders.Where(predicate).OrderByDescending(sortField).ToList() :
-                content.Orders.Where(predicate).OrderBy(sortField).ToList();
+            using var context = new OrdersContext();
+            List<Order> ordersFound = sortSelect2.SelectedIndex == 1 ?
+                context.Orders.Where(predicate).OrderByDescending(sortField).ToList() :
+                context.Orders.Where(predicate).OrderBy(sortField).ToList();
+            orderBinding.DataSource = ordersFound;
+            dataGridViewOrders.Refresh();
         }
 
         private void EditOrderButton_Click(object sender, EventArgs e)
